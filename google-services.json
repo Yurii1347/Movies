@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "555641061315",
+    "project_id": "authproject-62950",
+    "storage_bucket": "authproject-62950.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:555641061315:android:33e537b162aefbc996c776",
+        "android_client_info": {
+          "package_name": "com.yurii.vytivskyi.trainingapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "555641061315-lbt95901hsbqehi9r4khpb9bj11qme7r.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.yurii.vytivskyi.trainingapp",
+            "certificate_hash": "48ac2c9dea8401285e6bda5f0050cf15058c568b"
+          }
+        },
+        {
+          "client_id": "555641061315-jcrkg9qabfuvoe3jk87kcioqd1vquqd9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyByT71EZf4JWLvogpSCOY-xiYkWBZLecrc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "555641061315-jcrkg9qabfuvoe3jk87kcioqd1vquqd9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

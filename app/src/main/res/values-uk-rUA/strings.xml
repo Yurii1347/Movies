@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">TrainingApp</string>
+    <string name="details_movies_title">Назва фільму</string>
+    <string name="details_movies_overview">Опис</string>
+    <string name="details_movies_release">Дата виходу:</string>
+    <string name="details_movies_score">Оцінка:</string>
+    <string name="details_movies_someText">ЯкийсьТекстЯкийсьТекстЯкийсьТекстЯкийсьТекстЯкийсьТекстЯкийсьТекстЯкийсьТекстЯкийсьТекстЯкийсьТекстЯкийсьТекстЯкийсьТекстЯкийсьТекстЯкийсьТекстЯкийсьТекстЯкийсьТекстЯкийсьТекст</string>
+    <string name="main_activity_btStart">Увійти/Зареєструватись</string>
+    <string name="movies_activity_exit_message">Натисніть ще раз щоб вийти з додатку</string>
+</resources>

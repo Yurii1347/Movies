@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">TrainingApp</string>
+    <string name="details_movies_title">Name of the movie</string>
+    <string name="details_movies_overview">Overview</string>
+    <string name="details_movies_release">Release date:</string>
+    <string name="details_movies_score">Score:</string>
+    <string name="details_movies_someText">SomeTextSomeTextSomeTextSomeTextSomeTextSomeText</string>
+    <string name="main_activity_btStart">Sign In/Registration</string>
+    <string name="movies_activity_exit_message">Click again to exit the app</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+</resources>
