@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">TrainingApp</string>
+    <string name="app_name">Movies</string>
     <string name="details_movies_title">Назва фільму</string>
     <string name="details_movies_overview">Опис</string>
     <string name="details_movies_release">Дата виходу:</string>

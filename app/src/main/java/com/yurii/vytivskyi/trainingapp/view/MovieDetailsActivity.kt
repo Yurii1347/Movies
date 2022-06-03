@@ -3,16 +3,12 @@ package com.yurii.vytivskyi.trainingapp.view
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat.startActivity
 import com.google.android.youtube.player.YouTubeStandalonePlayer
 import com.squareup.picasso.Picasso
 import com.yurii.vytivskyi.trainingapp.Constants
 import com.yurii.vytivskyi.trainingapp.data.MovieDetails
 import com.yurii.vytivskyi.trainingapp.data.ResultX
-import com.yurii.vytivskyi.trainingapp.data.Trailers
 import com.yurii.vytivskyi.trainingapp.databinding.ActivityMoviesDetailsBinding
 import com.yurii.vytivskyi.trainingapp.viewmodel.MoviesVM
 
@@ -39,7 +35,6 @@ class MovieDetailsActivity : AppCompatActivity() {
             mViewModel.getTrailerEN(id)
             initObserveTrailerRU()
             }
-
 
     }
     private fun initObservers() {
@@ -81,6 +76,7 @@ class MovieDetailsActivity : AppCompatActivity() {
             startYouTubeTrailer(it[0])
         }
     }
+
 
  }
 

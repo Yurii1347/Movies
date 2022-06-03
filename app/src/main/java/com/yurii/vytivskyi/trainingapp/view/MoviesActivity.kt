@@ -13,10 +13,9 @@ import com.yurii.vytivskyi.trainingapp.view.adaptors.SimpleAdapter
 import com.yurii.vytivskyi.trainingapp.viewmodel.MoviesVM
 
 class MoviesActivity: AppCompatActivity(), SimpleAdapter.ItemClickListener {
-    private var backPressedTime:Long = 0
+    var backPressedTime:Long = 0
 
     private val mViewModel: MoviesVM = MoviesVM()
-
 
     private lateinit var mMoviesAdapter: SimpleAdapter
     private lateinit var mRecyclerView: RecyclerView
@@ -51,10 +50,8 @@ class MoviesActivity: AppCompatActivity(), SimpleAdapter.ItemClickListener {
         startActivity(i)
     }
 
-
-
     override fun onBackPressed() {
-       val backToast = Toast.makeText(this, resources.getString(R.string.movies_activity_exit_message), Toast.LENGTH_LONG)
+        val backToast = Toast.makeText(this, resources.getString(R.string.movies_activity_exit_message), Toast.LENGTH_LONG)
         if (backPressedTime + 2000 > System.currentTimeMillis()) {
             backToast.cancel()
             super.finishAffinity()

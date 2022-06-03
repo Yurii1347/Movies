@@ -3,11 +3,16 @@ package com.yurii.vytivskyi.trainingapp.view
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
 import android.view.View
+import android.widget.Toast
 import com.firebase.ui.auth.AuthUI
 import com.firebase.ui.auth.FirebaseAuthUIActivityResultContract
 import com.firebase.ui.auth.data.model.FirebaseAuthUIAuthenticationResult
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import com.yurii.vytivskyi.trainingapp.R
 import com.yurii.vytivskyi.trainingapp.data.User
 import com.yurii.vytivskyi.trainingapp.databinding.ActivityMainBinding
@@ -27,6 +32,16 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         openRegistrationScreen()
+
+        val user = Firebase.auth.currentUser
+        if (user != null) {
+            val i = Intent (this, MoviesActivity::class.java)
+            startActivity(i)
+        } else {
+            openRegistrationScreen()
+        }
+
+
     }
 
     private fun openRegistrationScreen(){
