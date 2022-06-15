@@ -1,0 +1,14 @@
+Index: app/.gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>/build\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/.gitignore b/app/.gitignore
+--- a/app/.gitignore	(revision 2c483c3d0ed3a10db4dd9b1780eca0930b6092cc)
++++ b/app/.gitignore	(date 1655215552651)
+@@ -1,1 +1,2 @@
+ /build
++/app/src/main/java/com/yurii/vytivskyi/trainingapp/viewmodel/Constants.kt
+\ No newline at end of file
