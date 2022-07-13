@@ -1,7 +1,6 @@
 package com.yurii.vytivskyi.trainingapp.viewmodel
 
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.yurii.vytivskyi.trainingapp.data.MovieDetails
@@ -13,7 +12,6 @@ import com.yurii.vytivskyi.trainingapp.model.repository.MoviesRepositoryImpl
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.util.*
 
 class MoviesVM  {
 
@@ -32,58 +30,29 @@ class MoviesVM  {
     val trailerEN : LiveData<List<ResultX>> = _trailerEN
 
 
-    fun getMovies() {
+    suspend fun getMovies() {
         val result = mMoviesRepository.getMovies()
-        result.enqueue( object : Callback<Movies>{
-            override fun onResponse(call: Call<Movies>, response: Response<Movies>) {
-                _movies.postValue(response.body()?.results)
-            }
-
-            override fun onFailure(call: Call<Movies>, t: Throwable) {
-            }
-        })
+        result.isSuccessful
+        _movies.postValue(result.body()?.results)
     }
 
-     fun getDetails(id: Int) {
+    suspend fun getDetails(id: Int) {
         val result = mMoviesRepository.getDetails(id)
-         result.enqueue( object : Callback<MovieDetails>{
-             override fun onResponse(call: Call<MovieDetails>, response: Response<MovieDetails>) {
-                 _movieDetails.postValue(response.body())
-             }
-             override fun onFailure(call: Call<MovieDetails>, t: Throwable) {
-
-             }
-         })
+        result.isSuccessful
+        _movieDetails.postValue(result.body())
     }
 
-    fun getTrailerRU(id: Int) {
+    suspend fun getTrailerRU(id: Int) {
         val result = mMoviesRepository.getTrailer(id, "ru")
-        result.enqueue( object : Callback<Trailers> {
-            override fun onResponse(call: Call<Trailers>, response: Response<Trailers>) {
-
-                _trailerRU.postValue(response.body()?.results)
-
-            }
-
-            override fun onFailure(call: Call<Trailers>, t: Throwable) {
-
-            }
-
-        })
+        result.isSuccessful
+        _trailerRU.postValue(result.body()?.results)
     }
-    fun getTrailerEN(id: Int) {
+
+    suspend fun getTrailerEN(id: Int) {
         val result = mMoviesRepository.getTrailer(id, "en")
-        result.enqueue( object : Callback<Trailers> {
-            override fun onResponse(call: Call<Trailers>, response: Response<Trailers>) {
+        result.isSuccessful
+        _trailerEN.postValue(result.body()?.results)
 
-                _trailerEN.postValue(response.body()?.results)
-
-            }
-
-            override fun onFailure(call: Call<Trailers>, t: Throwable) {
-
-            }
-
-        })
     }
+
 }

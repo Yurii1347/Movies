@@ -4,6 +4,7 @@ package com.yurii.vytivskyi.trainingapp.view
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import com.google.android.youtube.player.YouTubeStandalonePlayer
 import com.squareup.picasso.Picasso
 import com.yurii.vytivskyi.trainingapp.Constants
@@ -11,13 +12,14 @@ import com.yurii.vytivskyi.trainingapp.data.MovieDetails
 import com.yurii.vytivskyi.trainingapp.data.ResultX
 import com.yurii.vytivskyi.trainingapp.databinding.ActivityMoviesDetailsBinding
 import com.yurii.vytivskyi.trainingapp.viewmodel.MoviesVM
+import kotlinx.coroutines.launch
 
 
 class MovieDetailsActivity : AppCompatActivity() {
 
     private val mViewModel: MoviesVM = MoviesVM()
 
-    lateinit var binding : ActivityMoviesDetailsBinding
+    private lateinit var binding : ActivityMoviesDetailsBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,12 +29,17 @@ class MovieDetailsActivity : AppCompatActivity() {
       val id =  intent.getIntExtra("id", 0)
 
         initObservers()
+        lifecycleScope.launch {
 
-        mViewModel.getDetails(id)
+            mViewModel.getDetails(id)
+        }
 
         binding.moviesDetailsBtPlay.setOnClickListener {
-            mViewModel.getTrailerRU(id)
-            mViewModel.getTrailerEN(id)
+            lifecycleScope.launch {
+                mViewModel.getTrailerRU(id)
+                mViewModel.getTrailerEN(id)
+            }
+
             initObserveTrailerRU()
             }
 

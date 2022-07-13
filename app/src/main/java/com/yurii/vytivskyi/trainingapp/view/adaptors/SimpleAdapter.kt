@@ -18,7 +18,7 @@ class SimpleAdapter(private val mainL: List<Result?>, val mItemClickListener : I
     }
 
     inner class ViewHolder(item: View) : RecyclerView.ViewHolder(item) {
-        val binding = RecyclerViewItemBinding.bind(item)
+        private val binding = RecyclerViewItemBinding.bind(item)
         fun bind(result: Result?) = with(binding) {
             Picasso.get().load("https://image.tmdb.org/t/p/w500/" + result?.poster_path).into(imageView)
         }

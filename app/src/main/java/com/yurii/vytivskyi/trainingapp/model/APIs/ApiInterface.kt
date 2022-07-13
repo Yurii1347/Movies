@@ -5,6 +5,7 @@ import com.yurii.vytivskyi.trainingapp.data.Movies
 import com.yurii.vytivskyi.trainingapp.data.ResultX
 import com.yurii.vytivskyi.trainingapp.data.Trailers
 import retrofit2.Call
+import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
@@ -14,19 +15,19 @@ import retrofit2.http.Query
 interface ApiInterface {
 
     @GET ("3/movie/popular")
-    fun getMovies(@Query("api_key") sort : String) : Call<Movies>
+    suspend fun getMovies(@Query("api_key") sort : String) : Response<Movies>
 
     @GET ("3/movie/{movie_id}")
-    fun getDetails (@Path ("movie_id") movieIs : Int, @Query("api_key") sort: String,
-                    @Query ("language") lang: String ) : Call<MovieDetails>
+    suspend fun getDetails (@Path ("movie_id") movieIs : Int, @Query("api_key") sort: String,
+                    @Query ("language") lang: String ) : Response<MovieDetails>
 
     @GET ("3/movie/{movie_id}/videos")
-    fun getTrailer(@Path ("movie_id") movieID : Int, @Query ("api_key") sort: String,
-                   @Query ("language") lang: String) : Call<Trailers>
+    suspend fun getTrailer(@Path ("movie_id") movieID : Int, @Query ("api_key") sort: String,
+                   @Query ("language") lang: String) : Response<Trailers>
 
     companion object {
 
-        val BASE_URL = "https://api.themoviedb.org/"
+        private const val BASE_URL = "https://api.themoviedb.org/"
 
         fun create(): ApiInterface {
             val retrofit = Retrofit.Builder()

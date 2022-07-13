@@ -1,18 +1,17 @@
 package com.yurii.vytivskyi.trainingapp.model.repository
 
+
 import com.yurii.vytivskyi.trainingapp.data.MovieDetails
 import com.yurii.vytivskyi.trainingapp.data.Movies
-import com.yurii.vytivskyi.trainingapp.data.ResultX
 import com.yurii.vytivskyi.trainingapp.data.Trailers
-
-
 import retrofit2.Call
+import retrofit2.Response
 
 interface MoviesRepository {
 
-    fun getMovies(): Call<Movies>
+   suspend fun getMovies(): Response<Movies>
 
-    fun getDetails(id: Int): Call<MovieDetails>
+   suspend fun getDetails(id: Int): Response<MovieDetails>
 
-    fun getTrailer(id: Int, language: String): Call<Trailers>
+   suspend fun getTrailer(id: Int, language: String): Response<Trailers>
 }
