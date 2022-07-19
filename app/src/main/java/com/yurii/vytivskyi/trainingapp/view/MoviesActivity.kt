@@ -3,16 +3,22 @@ package com.yurii.vytivskyi.trainingapp.view
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
+import androidx.annotation.RestrictTo
 
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.LifecycleObserver
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.ViewTreeLifecycleOwner
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.yurii.vytivskyi.trainingapp.R
 import com.yurii.vytivskyi.trainingapp.databinding.ActivityMoviesBinding
 import com.yurii.vytivskyi.trainingapp.view.adaptors.SimpleAdapter
 import com.yurii.vytivskyi.trainingapp.viewmodel.MoviesVM
+import kotlinx.coroutines.launch
 
-class MoviesActivity: AppCompatActivity(), SimpleAdapter.ItemClickListener {
+class MoviesActivity: AppCompatActivity(), SimpleAdapter.ItemClickListener  {
     var backPressedTime:Long = 0
 
     private val mViewModel: MoviesVM = MoviesVM()
@@ -28,7 +34,9 @@ class MoviesActivity: AppCompatActivity(), SimpleAdapter.ItemClickListener {
         setContentView(binding.root)
         initViews()
         initObservers()
-        mViewModel.getMovies()
+        lifecycleScope.launch {
+            mViewModel.getMovies()
+        }
     }
     private fun initObservers() {
         mViewModel.apply {
