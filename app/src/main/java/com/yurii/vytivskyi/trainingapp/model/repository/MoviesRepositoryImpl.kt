@@ -5,7 +5,6 @@ import com.yurii.vytivskyi.trainingapp.data.MovieDetails
 import com.yurii.vytivskyi.trainingapp.data.Movies
 import com.yurii.vytivskyi.trainingapp.data.Trailers
 import com.yurii.vytivskyi.trainingapp.model.APIs.ApiInterface
-import retrofit2.Call
 import retrofit2.Response
 
 class MoviesRepositoryImpl: MoviesRepository {
